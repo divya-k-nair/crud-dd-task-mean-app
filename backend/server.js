@@ -10,13 +10,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
+// Use environment variable if set, otherwise default to Mongo service in Docker
+const mongoUri = process.env.MONGO_URI || 'mongodb://mongo:27017/meanapp';
 db.mongoose
-  .connect(db.url, {
+  .connect(mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log("Connected to the database!");
+    console.log("Connected to MongoDB!");
   })
   .catch(err => {
     console.log("Cannot connect to the database!", err);

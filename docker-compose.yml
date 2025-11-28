@@ -11,7 +11,7 @@ services:
       - mongo_data:/data/db
 
   backend:
-    build: ./backend
+    image: divyaknair/crud-dd-task-mean-app-backend:latest
     container_name: backend
     restart: always
     ports:
@@ -22,7 +22,7 @@ services:
       - MONGO_URL=mongodb://mongo:27017/tutorialdb
 
   frontend:
-    build: ./frontend
+    image: divyaknair/crud-dd-task-mean-app-frontend:latest
     container_name: frontend
     restart: always
     depends_on:

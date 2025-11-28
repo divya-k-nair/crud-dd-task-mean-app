@@ -4,7 +4,7 @@ clone the repo
 
   git clone https://github.com/<your-username>/<repo-name>.git
   
-  cd <repo-name>
+  cd reponame
 
 push the project to github
 
